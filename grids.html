@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de CSS Grid Areas</title>
+    <style>
+        /* 1. Reseteo básico para eliminar márgenes por defecto */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 2. El Contenedor Principal (El "Grid") */
+        .layout-container {
+            display: grid;
+            height: 100vh;
+            /* Ocupa el 100% de la altura de la ventana */
+
+            /* Definimos el tamaño de las columnas y filas */
+            /* Columnas: Sidebar fija de 250px, el resto flexible (1fr) */
+            grid-template-columns: 250px 1fr;
+
+            /* Filas: Header auto, Contenido flexible (1fr), Footer auto */
+            grid-template-rows: 80px 1fr 60px;
+
+            /* Mapeamos las áreas (¡Aquí ocurre la magia!) */
+            grid-template-areas:
+                "encabezado encabezado"
+                "lateral    principal"
+                "pie        pie";
+
+            gap: 10px;
+            /* Espacio entre los "marcos" */
+            background-color: #333;
+            /* Color de fondo de las líneas */
+        }
+
+        /* 3. Estilos visuales para cada área */
+        .box {
+            background-color: #f4f4f4;
+            padding: 20px;
+            font-family: sans-serif;
+            border: 2px solid #ddd;
+        }
+
+        /* 4. Asignación de áreas a las clases HTML */
+        .header {
+            grid-area: encabezado;
+            background-color: #ff6f61;
+            /* Coral */
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar {
+            grid-area: lateral;
+            background-color: #6b5b95;
+            /* Morado */
+            color: white;
+        }
+
+        .main-content {
+            grid-area: principal;
+            background-color: #ffffff;
+            overflow-y: auto;
+            /* Permite scroll solo en el contenido si es muy largo */
+        }
+
+        .footer {
+            grid-area: pie;
+            background-color: #88b04b;
+            /* Verde */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="layout-container">
+
+        <header class="box header">
+            <h2>Header (Logo & Nav)</h2>
+        </header>
+
+        <aside class="box sidebar">
+            <h3>Menú Lateral</h3>
+            <ul>
+                <li>Opción 1</li>
+                <li>Opción 2</li>
+                <li>Opción 3</li>
+            </ul>
+        </aside>
+
+        <main class="box main-content"
+            style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <h1>Pandasaurio - Ep. 8</h1>
+
+            <div style="box-shadow: 0 4px 8px rgba(0,0,0,0.2); border-radius: 12px; overflow: hidden;">
+                <iframe width="315" height="560" src="https://www.youtube.com/embed/IkvZ6zLJcf8"
+                    title="Pandasaurio - Short" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </main>
+
+        <footer class="box footer">
+            <p>Footer - Derechos reservados 2025</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
