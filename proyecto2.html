@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de aterrizaje del nuevo teléfono G5 Pro. Conoce sus características, diseño y tecnología.">
+    <meta name="author" content="Maria Elvia Barrera Sánchez, Pedro Sánchez">
+    <title>G5 Pro: El futuro en tus manos</title>
+    <link rel="icon" type="image/x-icon" href="Celular.png">
+
+    
+    <style>
+        :root {
+            
+            --fondo: #0a0f1f;
+            --fondo-sec: #11172b;
+            --fondo-card: #16213e;
+
+            --azul-oscuro: #0d1b2a;
+            --azul-medio: #1b263b;
+            --azul-brillante: #4ea8de;
+
+            --texto-claro: #e0e8ff;
+            --texto-suave: #a8b3d1;
+
+            --borde: #324a68;
+
+            --sombra: rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background: var(--fondo);
+            color: var(--texto-claro);
+            line-height: 1.6;
+            padding: 15px;
+        }
+
+       
+        h1, h2, p, li, td, th {
+            font-size: clamp(0.9rem, 1vw + 0.5rem, 1.2rem);
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+            color: var(--azul-brillante);
+        }
+
+        h2 {
+            font-size: clamp(1.3rem, 1.2vw + 1rem, 2rem);
+            color: var(--azul-brillante);
+            border-bottom: 1px solid var(--azul-brillante);
+            padding-bottom: 4px;
+        }
+
+        header {
+            background: linear-gradient(90deg, #08101f, #000814);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px var(--sombra);
+        }
+
+        header p {
+            color: var(--texto-suave);
+        }
+
+        
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        section {
+            background: var(--fondo-card);
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow: 0 4px 10px var(--sombra);
+            border: 1px solid var(--borde);
+        }
+
+        mark {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        
+        .tabla {
+            grid-column: 1 / -1;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px;
+            background: var(--fondo-sec);
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid var(--borde);
+            color: var(--texto-claro);
+        }
+
+        th {
+            background: var(--azul-medio);
+        }
+        img, picture, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+      
+        .svg-demo svg {
+            width: 100%;
+            height: auto;
+        }
+
+       
+        .boton-enlace,
+        .boton-camaleon {
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s ease;
+            font-size: clamp(.8rem, 1vw, 1rem);
+        }
+
+        .boton-enlace {
+            background-color: var(--azul-brillante);
+        }
+        .boton-enlace:hover {
+            background-color: #3a86b6;
+        }
+
+        .boton-camaleon {
+            background-color: #233554;
+        }
+        .boton-camaleon:hover {
+            background-color: #1b263b;
+        }
+
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            text-align: center;
+            background: linear-gradient(90deg, #08101f, #000814);
+            border-radius: 10px;
+            color: var(--texto-suave);
+            box-shadow: 0 4px 12px var(--sombra);
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 10px;
+            }
+
+            header {
+                padding: 20px 10px;
+            }
+
+            table {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>G5 Pro: El Futuro en Tus Manos</h1>
+        <p>Descubre el nuevo smartphone que lo cambia todo. Diseño revolucionario y rendimiento sin igual.</p>
+    </header>
+
+  
+    <main>
+
+        <section class="secciones">
+            <h2>Características Generales G5 Pro</h2>
+            <ol>
+                <li><strong>Diseño:</strong> ultradelgado de 7.5 mm, cuerpo de titanio y cristal reforzado.</li>
+                <li><strong>Pantalla:</strong> Crystal Vision OLED Pro X de 6.7”, 120Hz.</li>
+                <li><strong>Procesador:</strong> Snapdragon 8 Elite con IA.</li>
+                <li><strong>Batería:</strong> hasta 20 horas de video.</li>
+
+                <li><strong>Cámaras:</strong>
+                    <ul>
+                        <li>50MP principal con estabilización óptica.</li>
+                        <li>Triple cámara profesional.</li>
+                    </ul>
+                </li>
+
+                <li><strong>Seguridad:</strong> huella ultrasónica y reconocimiento facial.</li>
+                <li><strong>Conectividad:</strong> soporte 5G.</li>
+                <li><strong>Sonido:</strong> Dolby Atmos estéreo.</li>
+            </ol>
+        </section>
+
+        <section class="secciones">
+            <h2 id="parrafo-1">Diseño Ultradelgado</h2>
+            <p>Con solo 7.5 mm de grosor, el G5 Pro redefine la elegancia. Su cuerpo de titanio y cristal reforzado lo hace <mark>increíblemente resistente</mark>.</p>
+            <p>Pantalla <em>Crystal Vision</em> de 6.7 pulgadas para una experiencia inmersiva.</p>
+        </section>
+
+       
+        <section class="secciones">
+            <h2>Rendimiento y Batería</h2>
+            <p>Procesador <strong>Snapdragon 8 Elite</strong> con IA integrada.</p>
+            <p>Batería de <strong>20 horas</strong> de reproducción de video.</p>
+        </section>
+
+       
+        <section class="secciones">
+            <h2>Tecnología de Pantalla</h2>
+            <p>Pantalla <strong>OLED Pro X</strong> con 120Hz para una fluidez excepcional.</p>
+        </section>
+
+      
+        <section class="secciones">
+            <h2 id="parrafo-3">Sistema de Cámaras</h2>
+            <p>Triple cámara profesional: 50MP principal, gran angular y teleobjetivo.</p>
+        </section>
+
+        <section class="secciones">
+            <h2 id="parrafo-2">Seguridad Avanzada</h2>
+            <p>Incluye <strong>escáner ultrasónico</strong> bajo pantalla y FaceID seguro.</p>
+        </section>
+
+        <section class="secciones referencias">
+            <h2>Referencias</h2>
+            <ul>
+                <li>2010-2025. Xiaomi. <strong>Redmi 15C</strong> https://www.mi.com/mx/product/redmi</li>
+                <li>Vlado Pavlik. (2023). <strong>HTML Semántico</strong>. Semrush.</li>
+            </ul>
+        </section>
+
+       
+        <section class="tabla" id="tabla-mapa">
+            <h2 id="tabla-contenido">Elementos Principales</h2>
+            <p class="titulo">Elementos principales del G5 Pro.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Función</th>
+                        <th>Tipo</th>
+                        <th>Basado en:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2"><strong>Cámara</strong></td>
+                        <td>50MP principal</td>
+                        <td>Hardware</td>
+                        <td><a href="https://mastermoviles.gitbook.io/tecnologias2/caracteristicas-y-hardware-de-los-dispositivos-moviles" class="boton-enlace" target="_blank">Conoce más</a></td>
+                    </tr>
+                    <tr>
+                        <td>Triple cámara</td>
+                        <td>Hardware</td>
+                        <td><a href="#parrafo-3">Sistema de cámaras</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><strong>Pantalla y Rendimiento</strong></td>
+                        <td>Software / Pantalla</td>
+                        <td><a href="#parrafo-1">Detalles internos</a></td>
+                    </tr>
+                    <tr>
+                        <td>Seguridad</td>
+                        <td>Huella ultrasónica / FaceID</td>
+                        <td>Seguridad</td>
+                        <td><a href="#parrafo-2">Seguridad avanzada</a></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="4"><a href="https://www.apple.com/mx/shop/buy-iphone/iphone-16" class="boton-camaleon">Tecnología como</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h1>Modelos G5 - PRO</h1>
+            <hr>
+            <img src="nuevo.jpg">
+            <hr>
+
+            <h1>G5-PRO-picture</h1>
+            <picture>
+                <source srcset="modelos.jpg" media="(max-width: 600px)">
+                <source srcset="nueva.jpg" media="(max-width: 1500px)">
+                <img src="modelos.jpg" alt="bizcocho">
+            </picture>
+        </section>
+
+        <section class="svg-demo">
+            <h1>Svg Interactivo :</h1>
+            <svg viewBox="0 0 800 500">
+                <image href="modelos.jpg" x="50" y="50" width="700" height="400" />
+
+                <rect x="50" y="50" width="700" height="400" fill="none" stroke="#4ea8de" stroke-width="3"></rect>
+                <line x1="400" y1="50" x2="400" y2="450" stroke="#4ea8de" stroke-width="2" stroke-dasharray="5,5"></line>
+
+                <rect x="100" y="100" width="250" height="150" fill="transparent" onclick="mostrarInfo('almacenamiento')" style="cursor: pointer;" />
+                <rect x="450" y="100" width="250" height="150" fill="transparent" onclick="mostrarInfo('almacenamientoBasico')" style="cursor: pointer;" />
+                <rect x="100" y="270" width="200" height="150" fill="transparent" onclick="mostrarInfo('almacenamientoAvanzado')" style="cursor: pointer;" />
+                <circle cx="575" cy="345" r="75" fill="transparent" onclick="mostrarInfo('almacenamientoPremium')" style="cursor: pointer;" />
+            </svg>
+
+            <section id="infoPanel" class="info-box">
+                <h3>Información Técnica</h3>
+                <p id="areaInfo">Haz clic en un área para obtener detalles.</p>
+                <div id="areaDetails"></div>
+            </section>
+        </section>
+
+        
+        <script>
+            const areasData = {
+                almacenamiento: {
+                    nombre: "Almacenamiento",
+                    CapacidadRAMROM: "12GB + 256GB",
+                    TipodeRAM: "LPDDR4X",
+                    EspecificacionesdeROM: "UFS 3.1",
+                    USBOTG: "Soporta"
+                },
+                almacenamientoBasico: {
+                    nombre: "Almacenamiento Básico",
+                    CapacidadRAMROM: "4GB + 64GB",
+                    TipodeRAM: "LPDDR4X",
+                    EspecificacionesdeROM: "eMMC 5.1",
+                    USBOTG: "No soporta"
+                },
+                almacenamientoAvanzado: {
+                    nombre: "Almacenamiento Avanzado",
+                    CapacidadRAMROM: "8GB + 128GB",
+                    TipodeRAM: "LPDDR5",
+                    EspecificacionesdeROM: "UFS 2.2",
+                    USBOTG: "Soporta"
+                },
+                almacenamientoPremium: {
+                    nombre: "Almacenamiento Premium",
+                    CapacidadRAMROM: "16GB + 512GB",
+                    TipodeRAM: "LPDDR5X",
+                    EspecificacionesdeROM: "UFS 4.0",
+                    USBOTG: "Soporta"
+                }
+            };
+
+            function mostrarInfo(areaKey) {
+                const area = areasData[areaKey];
+                document.getElementById('areaInfo').innerHTML = `<strong>${area.nombre}</strong>`;
+                document.getElementById('areaDetails').innerHTML = `
+                    <table>
+                        <tr><td><strong>Capacidad RAM/ROM:</strong></td><td>${area.CapacidadRAMROM}</td></tr>
+                        <tr><td><strong>Tipo de RAM:</strong></td><td>${area.TipodeRAM}</td></tr>
+                        <tr><td><strong>ROM:</strong></td><td>${area.EspecificacionesdeROM}</td></tr>
+                        <tr><td><strong>USB OTG:</strong></td><td>${area.USBOTG}</td></tr>
+                    </table>
+                `;
+            }
+        </script>
+
+    </main>
+
+   

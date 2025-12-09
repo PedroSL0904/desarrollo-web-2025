@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estilos_practica</title>
+    <style>
+        body{
+            background-color:#572b0c;
+        }
+        h1{
+            color: red;
+        }
+        h2{
+            text-indent: 40%;
+        }
+        h3{
+            background-color: aquamarine;
+        }
+        .caja{
+            width: 200px;
+            height: 100px;
+            background-color: lightgreen;
+            margin:20px;
+            padding:15px;
+            border:3px solid darkgreen;
+        }
+        .caja-relativa{
+            position: relative;
+            left: 50px;
+            top: 10px;
+        }
+        .elemento-hijo{
+            position:absolute;
+            bottom: 5px;
+            right:5px;
+            width: 80px;
+            height: 25px;
+            background-color: darkolivegreen;
+            font-size: 0.8em;
+            line-height: 25px;
+        }
+        
+    </style>
+   
+</head>
+<body>
+    <h2>ESTILOS</h2>
+    <h3>Texto resaltado</h3>
+    <h1>Este texto esta en color rojo</h1>
+    <p>Texto sin estilo</p>
+
+    <div class="caja"></div>
+    <div class="caja caja-relativa">caja relativa</div>
+    <h1>Ejemplo de Contenedor Composicionamiento relativo</h1>
+    <div class="caja caja-relativa">
+        caja relativa
+   <div class="caja elemento-hijo">Soy el hijo</div>
+   </div>
+    
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simulación de frames con CSS Grid</title>
+  <style>
+    :root{--left-width:260px;--gap:8px}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
+
+    /* Grid layout: header, left (nav), content, footer */
+    .layout{
+      display:grid;
+      grid-template-columns: var(--left-width) 1fr;
+      grid-template-rows: 56px 1fr 36px;
+      grid-template-areas:
+        "header header"
+        "nav main"
+        "footer footer";
+      height:100vh;
+      gap:var(--gap);
+      background:#f8fafc;
+    }
+
+    header{grid-area:header;background:#0b1220;color:#fff;display:flex;align-items:center;padding:0 16px;gap:12px}
+    nav{grid-area:nav;background:#fff;padding:12px;overflow:auto;border-right:1px solid rgba(2,6,23,0.06)}
+    main{grid-area:main;background:#fff;display:flex;flex-direction:column;overflow:hidden}
+    footer{grid-area:footer;background:#0b1220;color:#fff;display:flex;align-items:center;padding:0 12px}
+
+    /* simulate 'frame' header inside main */
+    .frame-header{padding:10px 12px;border-bottom:1px solid rgba(2,6,23,0.06);display:flex;align-items:center}
+    .frame-title{font-weight:700}
+    .controls{margin-left:auto;display:flex;gap:8px}
+
+    /* area where multiple frames could be placed using nested grid */
+    .frames-area{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr;gap:8px;padding:12px;align-items:stretch}
+
+    .frame-box{background:#f8fafc;border:1px solid rgba(2,6,23,0.06);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+    .frame-box iframe{border:0;width:100%;height:100%;flex:1}
+
+    /* responsive */
+    @media (max-width:800px){
+      .layout{grid-template-columns:1fr;grid-template-areas:"header" "main" "footer"}
+      nav{display:none}
+      .frames-area{grid-template-columns:1fr}
+    }
+
+    /* small helper visuals */
+    .menu a{display:block;padding:8px;border-radius:6px;color:#0b1220;text-decoration:none;margin-bottom:6px}
+    .menu a:hover{background:#eef2ff}
+
+    /* draggable separator visual */
+    .separator{width:8px;cursor:col-resize;background:linear-gradient(180deg,transparent,transparent);position:relative}
+    .separator:before{content:'';position:absolute;left:2px;top:50%;transform:translateY(-50%);width:4px;height:64px;border-radius:4px;background:linear-gradient(180deg,#e2e8f0,#cbd5e1)}
+  </style>
+</head>
+<body>
+  <div class="layout" id="layout">
+    <header>
+      <div style="font-weight:700">Simulación de frames (CSS Grid)</div>
+      <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+        <button id="toggleNav">Mostrar/ocultar menú</button>
+        <button id="swapCols">Alternar 1/2 columnas</button>
+      </div>
+    </header>
+
+    <nav id="nav">
+      <div style="font-weight:700;margin-bottom:8px">Menú</div>
+      <div class="menu">
+        <a href="#" data-page="home">Inicio</a>
+        <a href="#" data-page="about">Acerca de</a>
+        <a href="#" data-page="gallery">Galería</a>
+        <a href="#" data-page="contact">Contacto</a>
+        <a href="#" data-external="https://es.wikipedia.org/wiki/HTML">HTML (externo)</a>
+      </div>
+      <hr />
+      <div style="font-size:13px;color:#334155;margin-top:8px">Arrastra el separador izquierdo para redimensionar el "frame" lateral.</div>
+    </nav>
+
+    <!-- separador visual y arrastrable -->
+    <div id="separator" class="separator" style="grid-row:2 / span 1; grid-column:1 / span 1"></div>
+
+    <main>
+      <div class="frame-header">
+        <div class="frame-title" id="frameTitle">Inicio</div>
+        <div class="controls">
+          <button id="openNew">Abrir en nueva pestaña</button>
+        </div>
+      </div>
+
+      <div class="frames-area" id="framesArea">
+        <div class="frame-box" id="frameA">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdhT22Xa4X6FhI5SNFWUDu4XUlUnCgGDV580l75d62uqKjahA/viewform?embedded=true" width="640" height="1609" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+        </div>
+        <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1126965540?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="XOLO"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+        
+        <div class="frame-box" id="frameB">
+          <iframe id="iframeB" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      Pie de página — Simulación moderna de frames con CSS Grid
+    </footer>
+  </div>
+
+  <script>
+    // Contenidos para los frames
+    const PAGES = {
+      home: `<h2>Inicio</h2><p>Bienvenido a la simulación de frames usando <strong>CSS Grid</strong>. Se muestran dos "frames" lado a lado.</p>`,
+      about: `<h2>Acerca de</h2><p>Esta es una demostración de layout moderno.</p>`,
+      gallery: `<h2>Galería</h2><p>Lista de imágenes de ejemplo.</p><ul><li>Imagen 1</li><li>Imagen 2</li></ul>`,
+      contact: `<h2>Contacto</h2><p>Email: ejemplo@dominio.com</p>`
+    };
+
+    const iframeA = document.getElementById('iframeA');
+    const iframeB = document.getElementById('iframeB');
+    const links = document.querySelectorAll('.menu a');
+    const frameTitle = document.getElementById('frameTitle');
+
+    // Inicializamos con contenido
+    setFrames('home');
+
+    links.forEach(a => a.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const page = a.dataset.page;
+      const external = a.dataset.external;
+      if(external){
+        // abrimos url externa en frame B
+        iframeB.src = external;
+        frameTitle.textContent = external;
+      } else {
+        setFrames(page);
+      }
+    }));
+
+    function setFrames(key){
+      const content = PAGES[key] || '<h2>No encontrado</h2>';
+      iframeA.srcdoc = `<!doctype html><html><head><meta charset='utf-8'><title>A</title></head><body style='font-family:system-ui;padding:12px'>${content}<p style='margin-top:12px;font-size:12px;color:#666'>Frame A (srcdoc)</p></body></html>`;
+      iframeB.srcdoc = `<!doctype html><html><head><meta charset='utf-8'><title>B</title></head><body style='font-family:system-ui;padding:12px'><h3>Complemento</h3><p>Contenido relacionado con: ${key}</p><p style='margin-top:12px;font-size:12px;color:#666'>Frame B (srcdoc)</p></body></html>`;
+      frameTitle.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+    }
+
+    // Resizable left column: arrastrar separator para ajustar --left-width
+    const separator = document.getElementById('separator');
+    const layout = document.getElementById('layout');
+    let dragging = false;
+
+    separator.addEventListener('mousedown', e => { dragging = true; document.body.style.cursor = 'col-resize'; e.preventDefault(); });
+    window.addEventListener('mouseup', e => { dragging = false; document.body.style.cursor = ''; });
+    window.addEventListener('mousemove', e => {
+      if(!dragging) return;
+      const rect = layout.getBoundingClientRect();
+      let newWidth = e.clientX - rect.left;
+      const min = 140; const max = window.innerWidth - 200;
+      if(newWidth < min) newWidth = min;
+      if(newWidth > max) newWidth = max;
+      document.documentElement.style.setProperty('--left-width', newWidth + 'px');
+    });
+
+    // Toggle nav visibility for small screens
+    document.getElementById('toggleNav').addEventListener('click', ()=>{
+      const nav = document.getElementById('nav');
+      if(getComputedStyle(nav).display === 'none') nav.style.display = 'block'; else nav.style.display = 'none';
+    });
+
+    // Swap between one and two columns in frames-area
+    let twoCols = true;
+    document.getElementById('swapCols').addEventListener('click', ()=>{
+      const fa = document.getElementById('framesArea');
+      twoCols = !twoCols;
+      fa.style.gridTemplateColumns = twoCols ? '1fr 1fr' : '1fr';
+      document.getElementById('swapCols').textContent = twoCols ? 'Alternar 1/2 columnas' : 'Volver a 2 columnas';
+    });
+
+    // Open current content of iframeA in new tab
+    document.getElementById('openNew').addEventListener('click', ()=>{
+      try{
+        if(iframeA.src && iframeA.src !== 'about:blank') window.open(iframeA.src, '_blank');
+        else {
+          const w = window.open(); w.document.open(); w.document.write(iframeA.srcdoc || '<p>sin contenido</p>'); w.document.close();
+        }
+      }catch(err){ alert('No se pudo abrir: '+err.message) }
+    });
+  </script>
+</body>
+</html>

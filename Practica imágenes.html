@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica imagenes</title>
+</head>
+
+<body>
+    <h2 style="font-size:14vw;">Practica imagenes</h2>
+    <hr>
+    <h1>Imagen Normal</h1>
+    <img src="cat2.jpg" alt="Un gato bizco">
+    <hr>
+
+    <h1>imagen responsive</h1>
+    <img src="cat1.jpg" style="max-width: 100%; height:auto;">
+    <hr>
+    <h1>uso de picture</h1>
+    <picture>
+        <source srcset="cat1.jpg" media="(max-width: 600px)">
+        <source srcset="cat3.jpg" media="(max-width: 1500px)">
+        <source srcset="cat2.jpg">
+        <img src="cat1.jpg" alt="bizcocho">
+
+    </picture>
+    <h1>Svg Interactivo en lugar de map</h1>
+    <section class="svg-demo">
+        <svg viewBox="0 0 800 500" style="width: 100%; height:auto;">
+            <rect x="50" y="50" width="700" height="400" fill="none" stroke="#666" stroke-width="3"></rect>
+            <line x1="400" y1="50" x2="400" y2="450" stroke="#666" stroke-width="2" stroke-dasharray="5,5"></line>
+
+            <rect x="100" y="100" width="250" height="150" fill="transparent" stroke="red" stroke-width="2"
+                onclick="mostrarInfo('recepcion')" style="cursor: pointer;" />
+
+            <rect x="450" y="100" width="250" height="150" fill="transparent" stroke="blue" stroke-width="2"
+                onclick="mostrarInfo('desarrollo')" style="cursor: pointer;" />
+
+            <rect x="100" y="270" width="200" height="150" fill="transparent" stroke="orange" stroke-width="2"
+                onclick="mostrarInfo('servidores')" style="cursor: pointer;" />
+
+
+            <circle cx="575" cy="345" r="75" fill="transparent" stroke="yellow" stroke-width="2"
+                onclick="mostrarInfo('reuniones')" style="cursor: pointer;" />
+        </svg>
+        <section id="infoPanel" class="info-box">
+            <h3>Información del Área</h3>
+            <p id="areaInfo">Haz clic en cualquier área del plano para ver su información técnica.</p>
+            <div id="areaDetails"></div>
+        </section>
+
+        <script>
+            const areasData = {
+                recepcion: {
+                    nombre: "Recepción y atención",
+                    responsable: "Ana Martínez",
+                    equipos: "3 PCs, 1 Impresora, 1 Teléfono IP",
+                    sistema: "Sistema de tickets v2.1",
+                    estado: "Operativo"
+                },
+                desarrollo: {
+                    nombre: "Desarrollo",
+                    responsable: "Pedro Lucio",
+                    equipos: "3 PCs, 2 laptops de prueba, 1 servidor local",
+                    sistema: "Entorno de desarrollo",
+                    estado: "En mantenimiento parcial"
+                },
+                servidores: {
+                    nombre: "Centro de servidores",
+                    responsable: "Park sunghoon ",
+                    equipos: "5 racks, 10 servidores, UPS redundante",
+                    sistema: "Infraestructura virtualizada  Linux",
+                    estado: "Operativo con monitoreo "
+                },
+                reuniones: {
+                    nombre: "Sala de reuniones",
+                    responsable: "Cirenia Hurtado",
+                    equipos: "1 proyector, sistema de videollamadas",
+                    sistema: "Microsoft Teams",
+                    estado: "Disponible para reservas"
+                }
+            };
+
+            function mostrarInfo(areaKey) {
+                const area = areasData[areaKey];
+                const infoPanel = document.getElementById('areaInfo');
+                const detailsPanel = document.getElementById('areaDetails');
+
+                if (area) {
+                    infoPanel.innerHTML = `<strong>${area.nombre}</strong>`;
+                    detailsPanel.innerHTML = `
+          <table>
+            <tr><td><strong>Responsable:</strong></td><td>${area.responsable}</td></tr>
+            <tr><td><strong>Equipos:</strong></td><td>${area.equipos}</td></tr>
+            <tr><td><strong>Sistema:</strong></td><td>${area.sistema}</td></tr>
+            <tr><td><strong>Estado:</strong></td><td>${area.estado}</td></tr>
+          </table>
+
+        `;
+                }
+            }
+        </script>
+</body>
+
+</html>
