@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página de aterrizaje del nuevo teléfono G5 Pro. Conoce sus características, diseño y tecnología.">
+    <meta name="author" content="Maria Elvia Barrera Sánchez, Pedro Sánchez">
+    <title>G5 Pro | El Futuro en Tus Manos</title>
+    <link rel="icon" type="image/x-icon" href="Celular.png">
+
+    <style>
+        :root {
+            --fondo-principal: #0a0a0a;
+            --fondo-secundario: #141414;
+            --fondo-card: #1c1c1e;
+            --acento-principal: #00f2c3;
+            --acento-hover: #00c7a0;
+            --texto-titulos: #ffffff;
+            --texto-cuerpo: #e0e0e0;
+            --texto-suave: #a1a1a6;
+            --borde-sutil: #333333;
+            --sombra-suave: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--fondo-principal);
+            color: var(--texto-cuerpo);
+            line-height: 1.7;
+            padding: 20px;
+            font-weight: 400;
+        }
+
+        h1, h2, h3 {
+            color: var(--texto-titulos);
+            letter-spacing: -0.5px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--texto-titulos), var(--acento-principal));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 2vw + 1rem, 2.2rem);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 60px;
+            height: 3px;
+            background: var(--acento-principal);
+        }
+
+        p, li, td, th {
+            font-size: clamp(1rem, 1vw + 0.2rem, 1.15rem);
+        }
+
+        header {
+            background: var(--fondo-secundario);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid var(--borde-sutil);
+            background: radial-gradient(circle at top, #1a1a1a 0%, var(--fondo-principal) 100%);
+        }
+
+        header p {
+            color: var(--texto-suave);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            background: var(--fondo-card);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--sombra-suave);
+            border: 1px solid var(--borde-sutil);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            border-color: var(--acento-principal);
+            transform: translateY(-3px);
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        ol, ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        mark {
+            background-color: transparent;
+            color: var(--acento-principal);
+            font-weight: bold;
+            padding: 0;
+        }
+
+        strong {
+            color: var(--texto-titulos);
+        }
+
+        .tabla-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--borde-sutil);
+        }
+
+        table {
+            width: 100%;
+            min-width: 700px;
+            border-collapse: collapse;
+            background: var(--fondo-secundario);
+        }
+
+        th, td {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--borde-sutil);
+            text-align: left;
+        }
+
+        th {
+            background: #252525;
+            color: var(--acento-principal);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: var(--fondo-card);
+        }
+
+        img, picture, svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: var(--borde-sutil);
+            margin: 30px 0;
+        }
+
+        .svg-wrapper svg {
+            background: var(--fondo-secundario);
+            border: 1px solid var(--borde-sutil);
+            cursor: pointer;
+        }
+
+        .zona-interactiva {
+            fill: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .zona-interactiva:hover {
+            stroke: var(--acento-principal);
+            stroke-width: 2px;
+            fill: rgba(0, 242, 195, 0.1);
+        }
+
+        .info-panel {
+            background: var(--fondo-secundario);
+            padding: 25px;
+            margin-top: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--acento-principal);
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-panel h3 {
+            color: var(--acento-principal);
+            margin-bottom: 15px;
+            border: none;
+        }
+
+        .info-panel h3::after {
+            content: none;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .specs-table td {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--borde-sutil);
+            color: var(--texto-suave);
+        }
+
+        .specs-table td:first-child {
+            color: var(--texto-cuerpo);
+            font-weight: 600;
+            width: 40%;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--acento-principal);
+            color: var(--fondo-principal);
+            box-shadow: 0 4px 15px rgba(0, 242, 195, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--acento-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 242, 195, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--texto-cuerpo);
+            border: 1px solid var(--borde-sutil);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--texto-cuerpo);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px;
+            text-align: center;
+            background: var(--fondo-secundario);
+            border-top: 1px solid var(--borde-sutil);
+            color: var(--texto-suave);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 15px; }
+            header { padding: 40px 15px; }
+            section { padding: 20px; }
+            h1 { font-size: 2.5rem; }
+            .btn { width: 100%; text-align: center; margin-bottom: 10px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>G5 Pro. El Futuro es Ahora.</h1>
+        <p>Redefiniendo los límites de la ingeniería móvil. Diseño de titanio, rendimiento con IA y una experiencia visual sin precedentes.</p>
+    </header>
+
+    <main>
+
+        <section class="full-width">
+            <h2>Especificaciones de Vanguardia</h2>
+            <p style="margin-bottom: 25px;">El G5 Pro no es solo una evolución, es una revolución en potencia y diseño.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div>
+                    <h3 style="color: var(--acento-principal);">Diseño</h3>
+                    <p>Ultradelgado (7.5mm), chasis de titanio aeroespacial y cristal Ceramic Shield.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--acento-principal);">Pantalla</h3>
+                    <p>6.7” Crystal Vision OLED Pro X, LTPO 120Hz adaptativo.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--acento-principal);">Potencia</h3>
+                    <p>Snapdragon 8 Elite Mobile Platform con motor neuronal de IA.</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--acento-principal);">Autonomía</h3>
+                    <p>Batería de alta densidad. Hasta 24h de reproducción de video.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="diseno">Diseño Ultradelgado</h2>
+            <p>Con solo 7.5 mm, el G5 Pro redefine la elegancia. Su cuerpo unibody de <mark>titanio grado 5</mark> y cristal reforzado ofrece una resistencia estructural sin igual.</p>
+        </section>
+
+        <section>
+            <h2>Rendimiento Óptico</h2>
+            <p>El nuevo procesador de señal de imagen (ISP) con IA permite fotografía computacional de nivel profesional en sus tres lentes.</p>
+            <ul>
+                <li>Principal: 50MP, f/1.6, OIS de 2ª generación.</li>
+                <li>Ultra Gran Angular: 48MP, 120° FOV.</li>
+                <li>Teleobjetivo: 12MP, Zoom óptico 5x.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 id="seguridad">Seguridad Biométrica</h2>
+            <p>Acceso instantáneo y seguro mediante el escáner de huellas ultrasónico 3D bajo pantalla y reconocimiento facial avanzado con sensor de profundidad.</p>
+        </section>
+
+        <section class="full-width">
+            <h2 id="tabla-contenido">Arquitectura del Sistema</h2>
+            <p style="margin-bottom: 20px;">Desglose de los componentes clave que impulsan al G5 Pro.</p>
+
+            <div class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Componente</th>
+                            <th>Especificación Clave</th>
+                            <th>Tipo</th>
+                            <th>Más Info</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2" style="vertical-align: middle;"><strong>Sistema Óptico</strong></td>
+                            <td>Sensor Principal 50MP (Sony IMX9)</td>
+                            <td>Hardware</td>
+                            <td><a href="#" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.8rem;">Ver Test</a></td>
+                        </tr>
+                        <tr>
+                            <td>Motor Fotónico (IA)</td>
+                            <td>Software/NPU</td>
+                            <td><a href="#diseno" style="color: var(--acento-principal); text-decoration: none;">Ver integración</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pantalla y UX</strong></td>
+                            <td>OLED Pro X / 120Hz LTPO</td>
+                            <td>Hardware/Display</td>
+                            <td><a href="#" style="color: var(--acento-principal); text-decoration: none;">Detalles del panel</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Biometría</strong></td>
+                            <td>Ultrasonido 3D / FaceID</td>
+                            <td>Seguridad</td>
+                            <td><a href="#seguridad" style="color: var(--acento-principal); text-decoration: none;">Ir a seguridad</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" style="text-align: center; padding: 20px;">
+                                <a href="https://www.apple.com/mx/iphone/" target="_blank" class="btn btn-secondary">Comparar con competidores</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="full-width" style="text-align: center;">
+            <h2>Galería G5 Pro</h2>
+            <p style="margin-bottom: 30px; color: var(--texto-suave);">Acabados en Titanio Natural y Negro Espacial.</p>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <img src="nuevo.jpg" alt="Vista frontal del G5 Pro mostrando su pantalla sin bordes" style="box-shadow: var(--sombra-suave);">
+            </div>
+
+            <hr>
+
+            <h3 style="margin: 30px 0; color: var(--texto-titulos);">Familia G5 Series</h3>
+            <picture>
+                <source srcset="modelos.jpg" media="(max-width: 600px)">
+                <source srcset="nueva.jpg" media="(max-width: 1200px)">
+                <img src="modelos.jpg" alt="Lineup completo de la serie G5" style="margin: 0 auto; box-shadow: var(--sombra-suave);">
+            </picture>
+        </section>
+
+        <section class="full-width svg-wrapper">
+            <h2>Exploración Técnica Interactiva</h2>
+            <p style="color: var(--texto-suave); margin-bottom: 20px;">Haz clic en las áreas del diagrama para conocer las configuraciones de almacenamiento disponibles.</p>
+
+            <svg viewBox="0 0 800 500">
+                <image href="modelos.jpg" x="50" y="50" width="700" height="400" preserveAspectRatio="xMidYMid slice" style="opacity: 0.5; filter: grayscale(100%);" />
+
+                <rect x="50" y="50" width="700" height="400" fill="none" stroke="var(--acento-principal)" stroke-width="2" stroke-opacity="0.5" pointer-events="none"></rect>
+                <line x1="400" y1="50" x2="400" y2="450" stroke="var(--acento-principal)" stroke-width="1" stroke-dasharray="5,5" stroke-opacity="0.5" pointer-events="none"></line>
+
+                <rect id="area-estandar" class="zona-interactiva" x="100" y="100" width="250" height="150" />
+                <rect id="area-basico" class="zona-interactiva" x="450" y="100" width="250" height="150" />
+                <rect id="area-avanzado" class="zona-interactiva" x="100" y="270" width="200" height="150" />
+                <circle id="area-premium" class="zona-interactiva" cx="575" cy="345" r="75" />
+            </svg>
+
+            <div id="infoPanel" class="info-panel">
+                <div style="text-align: center; color: var(--texto-suave);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px; opacity: 0.5;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <p>Selecciona una zona en el diagrama superior para ver las especificaciones detalladas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="full-width" style="background: var(--fondo-secundario); border: none;">
+            <h3>Referencias y Notas Legales</h3>
+            <ul style="font-size: 0.9rem; color: var(--texto-suave);">
+                <li>2010-2025. Datos comparativos basados en pruebas de laboratorio internas.</li>
+                <li>La disponibilidad de redes 5G depende del operador local.</li>
+                <li>Vlado Pavlik. (2023). HTML Semántico. Semrush.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 G5 Technologies. Todos los derechos reservados.</p>
+        <p style="margin-top: 10px;">Diseño y Desarrollo: Maria Elvia Barrera Sánchez | Pedro Sánchez Lucio</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const configuraciones = {
+                estandar: {
+                    titulo: "Configuración Estándar (Recomendada)",
+                    specs: [
+                        { label: "RAM / ROM", value: "12GB LPDDR4X + 256GB UFS 3.1" },
+                        { label: "Tecnología ROM", value: "UFS 3.1 de alta velocidad" },
+                        { label: "Expansión/OTG", value: "Soporte total USB-C OTG" },
+                        { label: "Uso ideal", value: "Multitarea intensiva, gaming avanzado" }
+                    ]
+                },
+                basico: {
+                    titulo: "Configuración de Entrada",
+                    specs: [
+                        { label: "RAM / ROM", value: "8GB LPDDR4X + 128GB UFS 2.2" },
+                        { label: "Tecnología ROM", value: "UFS 2.2" },
+                        { label: "Expansión/OTG", value: "Soporte limitado" },
+                        { label: "Uso ideal", value: "Uso diario, redes sociales, streaming" }
+                    ]
+                },
+                avanzado: {
+                    titulo: "Configuración Avanzada (Pro)",
+                    specs: [
+                        { label: "RAM / ROM", value: "16GB LPDDR5 + 512GB UFS 4.0" },
+                        { label: "Tecnología ROM", value: "UFS 4.0 de última generación" },
+                        { label: "Expansión/OTG", value: "Soporte de alta velocidad (Thunderbolt)" },
+                        { label: "Uso ideal", value: "Creación de contenido 4K, gaming competitivo" }
+                    ]
+                },
+                premium: {
+                    titulo: "Edición Ultimate Titanium (Limitada)",
+                    specs: [
+                        { label: "RAM / ROM", value: "24GB LPDDR5X + 1TB UFS 4.0" },
+                        { label: "Tecnología ROM", value: "UFS 4.0 + NVMe Array" },
+                        { label: "Expansión/OTG", value: "Máxima velocidad + Carga inversa" },
+                        { label: "Uso ideal", value: "Rendimiento sin compromisos, almacenamiento masivo" }
+                    ]
+                }
+            };
+
+            const panelDisplay = document.getElementById('infoPanel');
+
+            function mostrarDetalles(claveConfig) {
+                const config = configuraciones[claveConfig];
+                let tablaHTML = '<table class="specs-table">';
+                
+                config.specs.forEach(item => {
+                    tablaHTML += `
+                        <tr>
+                            <td>${item.label}</td>
+                            <td><strong>${item.value}</strong></td>
+                        </tr>
+                    `;
+                });
+                tablaHTML += '</table>';
+
+                panelDisplay.style.opacity = 0;
+                setTimeout(() => {
+                    panelDisplay.innerHTML = `
+                        <h3>${config.titulo}</h3>
+                        ${tablaHTML}
+                    `;
+                    panelDisplay.style.opacity = 1;
+                }, 150);
+            }
+
+            const zonas = [
+                { id: 'area-estandar', clave: 'estandar' },
+                { id: 'area-basico', clave: 'basico' },
+                { id: 'area-avanzado', clave: 'avanzado' },
+                { id: 'area-premium', clave: 'premium' }
+            ];
+
+            zonas.forEach(zona => {
+                const elemento = document.getElementById(zona.id);
+                if (elemento) {
+                    elemento.addEventListener('click', () => mostrarDetalles(zona.clave));
+                    elemento.setAttribute('tabindex', '0');
+                    elemento.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') mostrarDetalles(zona.clave);
+                    });
+                } else {
+                    console.warn(`No se encontró la zona interactiva: ${zona.id}`);
+                }
+            });
+
+            panelDisplay.style.transition = 'opacity 0.3s ease';
+        });
+    </script>
+
+</body>
+</html>
